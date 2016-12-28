@@ -22,5 +22,8 @@ module Uclabook
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+#esto era algo que se pedia al integrar devise al proyecto,  era en caso de que estuvisemos trabajando con heroku con rails 3.2(la pusimos por si acaso)
+    config.assets.initialize_on_precompile = false
   end
 end

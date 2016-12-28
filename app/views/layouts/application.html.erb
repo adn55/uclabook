@@ -2,14 +2,32 @@
 <html>
 <head>
   <title>Uclabook</title>
-  <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'default', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag    '/css/bootstrap.css', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag '/js/application.js', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="container">
+<a href="#" class="navbar-brand">Uclabook</a>
+<ul class="nav navbar-nav">
+	<li class="active">
+		<%= link_to "Status", statuses_path %>
+	</li>
+</ul>
+
+</div>
+</div>
+
+<div class="container">
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
+</div>
 
 </body>
 </html>

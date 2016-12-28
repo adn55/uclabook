@@ -1,0 +1,46 @@
+Documentacion de parte de lo que se hizo en el archivo index.html.erb (a partir de la linea 6775 si no ocurren grandes cambios)
+<!--Cosas Serias:-->
+<div class="page-header">
+<h1>Todos los Estados</h1>
+</div>
+<!--esto es un ciclo-->
+<!--@statuses es una variable que se nos permite utilizar y con llamamos a cada uno de los componentes por los que esta conformada -->
+<!--con do |status| (status es la variable)insertamos una variable que nos permita manejar los estados de forma independiente-->
+<% @statuses.each do |status| %>
+
+<!--El espacio entre(omitir los #) <% @statuses.each #do #|status| %> y <%
+#fin del ciclo
+#end %>
+es el ambito de lo que queremos mostrar dinamicamente con ruby (<%  %>)-->
+
+<div class="status">
+
+<strong>
+  <%= #aca la var status (Jamas la class)
+#se esta llamando a un atributo (nombre en este caso) y si queremos estar seguro que ese es el nombre correcto (asociado a la db) nos vamos a db/migrate/2016...create_statuses.rb    y en ese archivo verificar que el nombre es correcto
+   status.nombre %>
+</strong>
+
+<p>
+  <%= status.contenido %>
+</p>
+
+  <div>
+    <%= link_to "Mostrar", status %>
+
+    <!--llamamos a la class de esta etiqueta admin por ahora porque solo nosotros como administradores podemos editar ybborrar la info, sin embargo mas adelante se haran cambios para que a cada usuario que corresponda dicho status pueda editar y borrar la info-->
+    <span class="admin">
+
+    <%= link_to "Editar", edit_status_path(status)
+      %>
+      <!--esto: | divide la informacion (supongo que a nivel de codigo)-->
+       |
+      <%= link_to "Borrar", status, method: :delete, data: {confirm: "¿Seguro que desea Eliminar el Estado?"}  %>
+    </span>
+
+  </div>
+</div>
+
+<%
+#fin del ciclo
+end %>
