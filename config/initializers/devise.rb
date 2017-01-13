@@ -242,7 +242,8 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  #-----------aca estaba: config.sign_out_via = :delete y cambie el delete a get por una sugerencia en starckoverflow ya que no me queria cerrar la sesion del usuario, con este cambio y uno que hice en el archivo application.html.erb (quitar method: delete(no estoy seguro si los dos puntos estan donde es)) de una parte que dice "Cerrar Sesion",destro... y asi me funciono(y cuando me devuelvo hacia atras no me lleca a la sesion del usuario que cerro sino a la pag principal)
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -271,4 +272,5 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
 end

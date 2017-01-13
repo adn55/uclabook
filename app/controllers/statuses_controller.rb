@@ -1,4 +1,9 @@
 class StatusesController < ApplicationController
+
+  #lo que sigue es una herramient de devise para la autentificacion
+  #esto es parte de lo que se necesita para que no pueda crear post si no ha iniciado sesion
+   #only: [:new]->solamente con la seccion de nuevos
+before_filter :authenticate_user!, only: [:new]
   before_action :set_status, only: [:show, :edit, :update, :destroy]
 
   # GET /statuses
@@ -73,6 +78,6 @@ class StatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_params
-      params.require(:status).permit(:nombre, :contenido)
+      params.require(:status).permit(:user_id, :contenido)
     end
 end

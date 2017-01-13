@@ -1,6 +1,19 @@
 Rails.application.routes.draw do
   devise_for :users
+
+#esto es un ambito
+#las rutas deben escribirse en minuscula (registrar), tampoco se pueden usar caracteres especiales
+devise_scope :user do
+  get "registrar" => "devise/registrations#new", :as => "registrar"
+
+  get "comenzar" => "devise/sessions#new", :as => "comenzar"
+
+  get "destruir" => "devise/sessions#destroy", :as => "destruir"
+end
+
   resources :statuses
+get "timeline" => "statuses#index", :as => "timeline"
+
   #root para indicar que vamos a agregar una pag principal al proyecto,
    #index para asignar a statuses(por ahora) como la seccion principal del proyecto
   root to:'statuses#index'
@@ -58,4 +71,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end
