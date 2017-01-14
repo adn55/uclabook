@@ -4,4 +4,11 @@ class Status < ActiveRecord::Base
 
 	#hace referencia a que este modelo pertence a user, y es como parte de la relacion de que muchos status pertenecen a aun usuario
 	belongs_to :user
+
+#lenght: { minimum: 2}->minimo debe llevar dos caracteres
+validates :contenido, presence: true,
+	lenght: { minimum: 2 }
+
+validates :user_id, presence: true
+
 end

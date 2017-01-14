@@ -19,6 +19,11 @@ class StatusesControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
 
+test "debe iniciar sesion para hacer un post" do
+  post :create, status: { contenido: "Hola Mundo"}
+  assert_response :redirect
+  assert_redirected_to new_user_session_path
+end
 test "deberia mostrar la nueva pagina cuando inicio sesion" do
 #lo que sigue es una herramienta de devise
 #ojala es el nombre del usuario que esta en users.yml
@@ -30,6 +35,7 @@ assert_response :success
 end
 
   test "should create status" do
+   sign_in users(:ojala)
     assert_difference('Status.count') do
       post :create, status: { contenido: @status.contenido }
     end

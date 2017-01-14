@@ -3,7 +3,7 @@ class StatusesController < ApplicationController
   #lo que sigue es una herramient de devise para la autentificacion
   #esto es parte de lo que se necesita para que no pueda crear post si no ha iniciado sesion
    #only: [:new]->solamente con la seccion de nuevos
-before_filter :authenticate_user!, only: [:new]
+before_filter :authenticate_user!, only: [:new, :create]
   before_action :set_status, only: [:show, :edit, :update, :destroy]
 
   # GET /statuses
