@@ -15,12 +15,13 @@ validates :primer_nombre, presence: true
 
 validates :primer_apellido, presence: true
 
+#[....]->....estos puntos estan encapsulados en los corchetes
 
 validates :nombre_perfil, presence: true,
 	uniqueness: true,
 	format: {
-		with: //,
-		message:"debe estar formateado correctamente. (no debe llevar punto)"
+		with: /[a-zA-Z0-9_-]+/,
+		message: 'debe estar formateado correctamente. (no debe llevar punto).'
 
 	}
 #esto es un metodo en el que se le hace llamado en ->show.html.erb(en el directorio de views/statuses) y en ->index.html.erb (en el directorio de views/statuses)

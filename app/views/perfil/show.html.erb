@@ -1,0 +1,16 @@
+<!--asi se mostrara el nombre de perfil del usuario que queremos mostrar-->
+<div class="page-header">
+<!--si en el controlador perfil_controller.rb utilizamos una var @user, esta la vamos a poder usar dinamicamente en cualquier parte relacionada a esta misma seccion-->
+<h1><%= @user.nombre_completo %></h1>
+
+</div>
+
+<% if @statuses %>
+<% @statuses.each do |status| %>
+<div class="well">
+<% status.contenido%>
+<hr />
+Hace <%= link_to time_ago_in_words(status.created_at), status_path(status) %>
+</div>
+<% end %>
+<% end %>

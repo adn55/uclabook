@@ -7,7 +7,7 @@ class Status < ActiveRecord::Base
 
 #lenght: { minimum: 2}->minimo debe llevar dos caracteres
 validates :contenido, presence: true,
-	lenght: { minimum: 2 }
+	length: { minimum: 2 }
 
 validates :user_id, presence: true
 

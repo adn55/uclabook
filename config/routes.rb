@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'perfil/show'
+
   devise_for :users
 
 #esto es un ambito
@@ -17,6 +19,8 @@ get "timeline" => "statuses#index", :as => "timeline"
   #root para indicar que vamos a agregar una pag principal al proyecto,
    #index para asignar a statuses(por ahora) como la seccion principal del proyecto
   root to:'statuses#index'
+
+  get '/:id', to: 'perfil#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
